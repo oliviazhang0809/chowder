@@ -1,12 +1,3 @@
-echo ""
-echo "Note: Please make sure the ports 8003/8004 were closed before continuing running the script."
-echo "Note: Please make sure the database to open specified exists.\n"
-echo ""
-sleep 10
-
-yum -y update
-yum -y install libuuid uuid python-setuptools python-devel gcc git
-
 INFLUXDB_VER=influxdb-0.8.5-1
 INFLUXDB_PKG=$INFLUXDB_VER.x86_64.rpm
 INFLUXDB_URL=http://s3.amazonaws.com/influxdb/$INFLUXDB_PKG
@@ -17,6 +8,19 @@ NGINX_VER=nginx-release-centos-6-0.el6.ngx.noarch
 NGINX_PKG=$NGINX_VER.rpm
 NGINX_URL=http://nginx.org/packages/centos/6/noarch/RPMS/$NGINX_PKG
 DB_TO_OPEN="test1"
+PORT_FOR_GRAFANA=8003
+PORT_FOR_INFLUXDB=8004
+MY_HOST=
+
+
+echo ""
+echo "Note: Please make sure the ports $PORT_FOR_GRAFANA/$PORT_FOR_INFLUXDB were closed before continuing running the script."
+echo "Note: Please make sure $DB_TO_OPEN exists.\n"
+echo ""
+sleep 10
+
+yum -y update
+yum -y install libuuid uuid python-setuptools python-devel gcc git
 
 echo "Downloading and installing influxdb."
 wget $INFLUXDB_URL
@@ -34,6 +38,7 @@ mv /etc/nginx/conf.d/default.conf{,.disabled}
 
 echo "Configuring Grafana."
 wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/config.js -O $GRAFANA_VER/config.js --no-check-certificate
+sed -i "s|HOST_NAME|$MY_HOST|g" $GRAFANA_VER/config.js
 sed -i "s|DATABASE_NAME|$DB_TO_OPEN|g" $GRAFANA_VER/config.js
 mkdir -p /var/www/{public,private,log,backup}
 mv $GRAFANA_VER /var/www/public/grafana
