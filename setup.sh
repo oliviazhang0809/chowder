@@ -12,10 +12,10 @@ PORT_FOR_GRAFANA=8003
 PORT_FOR_INFLUXDB=8004
 MY_HOST=
 
-
 echo ""
 echo "Note: Please make sure the ports $PORT_FOR_GRAFANA/$PORT_FOR_INFLUXDB were closed before continuing running the script."
-echo "Note: Please make sure $DB_TO_OPEN exists.\n"
+echo "Note: Please make sure $DB_TO_OPEN exists."
+echo "Warning: the hostname needs to be manually setup in shell file -- please exit the installation if you haven't set it."
 echo ""
 sleep 10
 
