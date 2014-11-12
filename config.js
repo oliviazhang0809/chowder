@@ -22,13 +22,13 @@ function (Settings) {
     datasources: {
       influxdb: {
         type: 'influxdb',
-        url: "http://ups-influxdb-grafana-417816.phx01.dev.ebayc3.com:8086/db/DATABASE_NAME",
+        url: "http://ups-influxdb-grafana-seed-422279.phx01.dev.ebayc3.com:8086/db/DATABASE_NAME",
         username: 'root',
         password: 'root',
       },
        grafana: {
         type: 'influxdb',
-	url: "http://ups-influxdb-grafana-417816.phx01.dev.ebayc3.com:8086/db/DATABASE_NAME",
+	url: "http://ups-influxdb-grafana-seed-422279.phx01.dev.ebayc3.com/db/DATABASE_NAME",
 	username: 'root',
 	password: 'root',
         grafanaDB: true
