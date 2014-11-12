@@ -22,13 +22,13 @@ function (Settings) {
     datasources: {
       influxdb: {
         type: 'influxdb',
-        url: "http://ups-influxdb-grafana-seed-422279:8086/db/DATABASE_NAME",
+        url: "http://HOST_NAME:8086/db/DATABASE_NAME",
         username: 'root',
         password: 'root',
       },
        grafana: {
         type: 'influxdb',
-	      url: "http://ups-influxdb-grafana-seed-422279:8086/db/DATABASE_NAME",
+	      url: "http://HOST_NAME:8086/db/DATABASE_NAME",
 	     username: 'root',
 	     password: 'root',
         grafanaDB: true
