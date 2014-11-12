@@ -11,12 +11,9 @@ NGINX_VER=nginx-release-centos-6-0.el6.ngx.noarch
 NGINX_PKG=$NGINX_VER.rpm
 NGINX_URL=http://nginx.org/packages/centos/6/noarch/RPMS/$NGINX_PKG
 DB_TO_OPEN="test1"
-PORT_FOR_GRAFANA=8003
-PORT_FOR_INFLUXDB=8004
 MY_HOST=
 
 echo ""
-echo "Note: Please make sure the ports $PORT_FOR_GRAFANA/$PORT_FOR_INFLUXDB were closed before continuing running the script."
 echo "Note: Please make sure $DB_TO_OPEN exists."
 echo "Warning: the hostname needs to be manually setup in shell file -- please exit the installation if you haven't set it."
 echo ""
@@ -54,6 +51,4 @@ nginx
 echo "Downloading sine wave generation program."
 curl -s https://gist.githubusercontent.com/otoolep/3d5741e680bf76021f77/raw/1d81a1ad4771659b008b9c346b4dd20ef1b72536/sine.py >sine.py
 
-echo -e "Configuration complete. You can find InfluxDB and Grafana at the URLs below.\n"
-echo "Influxdb URL:     http://localhost:$PORT_FOR_INFLUXDB"
-echo "Grafana URL:      http://localhost:$PORT_FOR_GRAFANA"
+echo -e "Configuration complete."
