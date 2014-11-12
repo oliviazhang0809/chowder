@@ -28,7 +28,7 @@ function (Settings) {
       },
        grafana: {
         type: 'influxdb',
-	      url: "http://HOST_NAME/db/DATABASE_NAME",
+	      url: "http://HOST_NAME:8086/db/DATABASE_NAME",
 	     username: 'root',
 	     password: 'root',
         grafanaDB: true
