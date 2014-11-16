@@ -11,11 +11,10 @@ NGINX_VER=nginx-release-centos-6-0.el6.ngx.noarch
 NGINX_PKG=$NGINX_VER.rpm
 NGINX_URL=http://nginx.org/packages/centos/6/noarch/RPMS/$NGINX_PKG
 DB_TO_OPEN="test1"
-MY_HOST=
+MY_HOST=$(hostname)
 
 echo ""
-echo "Note: Please make sure $DB_TO_OPEN exists."
-echo "Warning: the hostname needs to be manually setup in shell file -- please exit the installation if you haven't set it."
+echo "Warning: the hostname is default set as $MY_HOST."
 echo ""
 sleep 5
 
@@ -35,6 +34,9 @@ echo "Downloading and installing nginx."
 yum -y install $NGINX_URL
 yum -y install nginx
 mv /etc/nginx/conf.d/default.conf{,.disabled}
+
+echo "Creating Influxdb database $DB_TO_OPEN."
+curl -s "http://$MY_HOST:8086/db?u=root&p=root" -d "{\"name\": \"$DB_TO_OPEN\"}"
 
 echo "Configuring Grafana."
 wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/setup/config.js -O $GRAFANA_VER/config.js --no-check-certificate
