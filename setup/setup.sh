@@ -11,7 +11,8 @@ NGINX_VER=nginx-release-centos-6-0.el6.ngx.noarch
 NGINX_PKG=$NGINX_VER.rpm
 NGINX_URL=http://nginx.org/packages/centos/6/noarch/RPMS/$NGINX_PKG
 DB_TO_OPEN="test1"
-MY_HOST=$(hostname)
+MY_HOST="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
+
 
 echo ""
 echo "Warning: the hostname is default set as $MY_HOST."
