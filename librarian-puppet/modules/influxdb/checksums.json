@@ -1,0 +1,20 @@
+{
+  "Gemfile": "1a6a7ccaa22827a78dc3c13ed8904fca",
+  "LICENSE": "b1b958e6adb4201b1da303c60da9b803",
+  "Puppetfile": "b9af68161c21291f8ce489a7367d8c81",
+  "Puppetfile.lock": "0e9c5867c694533d1fc6ceadf633666a",
+  "README.md": "ba6c1f5e6e391f52c0791cd33873eecb",
+  "Rakefile": "ec67fa7ac3ecfc5c196b8e7cc28c71e4",
+  "Vagrantfile": "3975a741024b2f337d565a5aa9069f5b",
+  "manifests/config.pp": "6eb058d70f3fde7a849e57abfdd8355b",
+  "manifests/init.pp": "06817ebf2dc0be4cd00156d66a216140",
+  "manifests/install.pp": "a710acf2cd4b84cd90a9bfd725d0eebd",
+  "manifests/params.pp": "f42a465297a28200ff63fcbc4910fae5",
+  "manifests/service.pp": "f362b675ebd8bcfb5894aa30a0841a2b",
+  "metadata.json": "1d4f90be4c373f14e83244446e3adb68",
+  "spec/classes/influxdb_spec.rb": "3392247e6b8e99568eff1714a6c3b50d",
+  "spec/classes/install_spec.rb": "66aea7e6e97eb3a9627caa96620921d2",
+  "spec/spec_helper.rb": "792eeb7aa7edafb93e2bc1d27c5e75c5",
+  "tests/init.pp": "cdaf00302fb1b9180b391f70432cb931",
+  "tests/vagrant.pp": "174a1a2257f27ccd6355237a56e892a5"
+}

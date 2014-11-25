@@ -1,0 +1,31 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    gini-archive (0.2.1)
+    jdowning-influxdb (0.3.0)
+      nanliu-staging (>= 0.4.0)
+      puppetlabs-inifile (>= 1.0.0)
+    nanliu-staging (1.0.2)
+    puppetlabs-apache (1.2.0)
+      puppetlabs-concat (>= 1.1.1)
+      puppetlabs-stdlib (>= 2.4.0)
+    puppetlabs-concat (1.1.2)
+      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs-inifile (1.2.0)
+    puppetlabs-stdlib (4.4.0)
+
+GIT
+  remote: https://github.com/echocat/puppet-grafana.git
+  ref: master
+  sha: 1399bd054b307e0eb23b70237df4726aa8e9b63c
+  specs:
+    echocat-puppet-grafana (1.0.0)
+      puppetlabs-stdlib (>= 3.2.0)
+
+DEPENDENCIES
+  echocat-puppet-grafana (>= 0)
+  gini-archive (= 0.2.1)
+  jdowning-influxdb (= 0.3.0)
+  puppetlabs-apache (>= 0)
+  puppetlabs-stdlib (= 4.4.0)
+
