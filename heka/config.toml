@@ -1,0 +1,20 @@
+[hekad]
+maxprocs = 1
+
+[StatsdInput]
+
+[StatAccumInput]
+ticker_interval = 1
+emit_in_fields = true
+
+[statmetric-influx-encoder]
+type = "SandboxEncoder"
+filename = "lua_encoders/statmetric_influx.lua"
+
+[influx]
+type = "HttpOutput"
+message_matcher = "Type == 'heka.statmetric'"
+address = "http://heka-test-machine-435283.phx01.dev.ebayc3.com:8086/db/heka_test1/series"
+encoder = "statmetric-influx-encoder"
+username = "root"
+password = "root"
