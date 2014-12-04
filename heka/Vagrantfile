@@ -6,47 +6,6 @@ VAGRANTFILE_API_VERSION = "2"
 
 virtual_box = 'centos-64-x64-vbox4210'
 
-$script = <<SCRIPT
-# install heka
-
-# add hekad-user
-#useradd -d / -M -U -c "hekad-user" -s /usr/sbin/nologin heka
-
-useradd hekadUser
-# create directory
-mkdir /etc/hekad
-mkdir -p /opt/hekad/shared
-mkdir -p /var/cache/hekad
-
-# install heka
-wget -O awesome_heka.rpm "https://github.com/mozilla-services/heka/releases/download/v0.8.0/heka-0_8_0-linux-amd64.rpm"
-rpm -ivh awesome_heka.rpm
-rm awesome_heka.rpm
-
-# install daemon
-wget http://libslack.org/daemon/download/daemon-0.6.4-1.x86_64.rpm
-rpm -ivh daemon-0.6.4-1.x86_64.rpm
-rm daemon-0.6.4-1.x86_64.rpm
-
-# fetch predefined config.toml
-cd /opt/hekad/shared
-wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/heka/config.toml --no-check-certificate
-cd /etc/hekad
-wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/heka/init.sh --no-check-certificate
-
-# change user right
-chown hekadUser:hekadUser /etc/hekad
-chown hekadUser:hekadUser /opt/hekad
-chown hekadUser:hekadUser /opt/hekad/shared
-chown hekadUser:hekadUser /var/cache/hekad
-chown hekadUser:hekadUser /opt/hekad/shared/config.toml
-chown hekadUser:hekadUser /etc/hekad/init.sh
-
-# start daemon
-sudo /bin/bash /etc/hekad/init.sh start
-
-SCRIPT
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb, newconfig|
       newconfig.vm.box = virtual_box
@@ -55,5 +14,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.memory = 1024
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
-  config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", path: "./setup-hekad.sh"
 end
