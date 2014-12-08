@@ -5,6 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 virtual_box = 'centos-64-x64-vbox4210'
+n = 3
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb, newconfig|
@@ -14,5 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.memory = 1024
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
-  config.vm.provision "shell", path: "./setup-hekad.sh"
+  for i in 1..n do
+    config.vm.define "node-#{i}"
+  end
 end
