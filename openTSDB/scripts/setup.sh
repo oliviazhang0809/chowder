@@ -14,12 +14,15 @@ mkdir -p /usr/local/hbase
 cp -r hbase-0.94.24/* /usr/local/hbase
 
 #configure hbase
-rm hbase-0.94.24/conf/hbase-env.sh
-wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/openTSDB/hbase-env.sh -O hbase-0.94.24/conf/hbase-env.sh --no-check-certificate
-rm hbase-0.94.24/conf/hbase-site.xml
-wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/openTSDB/hbase-site.xml -O hbase-0.94.24/conf/hbase-site.xml --no-check-certificate
+rm -rf hbase-0.94.24
+# configure hbase-env.sh
+rm /usr/local/hbase/conf/hbase-env.sh
+wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/openTSDB/hbase-env.sh -O /usr/local/hbase/conf/hbase-env.sh --no-check-certificate
+# configure hbase-site.xml
+rm /usr/local/hbase/conf/hbase-site.xml
+wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/openTSDB/hbase-site.xml -O /usr/local/hbase/conf/hbase-site.xml --no-check-certificate
 echo "starting hbase"
-hbase-0.94.24/bin/start-hbase.sh
+/usr/local/hbase/bin/start-hbase.sh
 
 echo "installing gnuplot"
 sudo rm /etc/yum.repos.d/CentOS-Base.repo
@@ -32,5 +35,6 @@ git clone git://github.com/OpenTSDB/opentsdb.git
 cd opentsdb
 ./build.sh
 
-env COMPRESSION=NONE HBASE_HOME=/home/vagrant/hbase-0.94.24 ./src/create_table.sh
+echo "creating tables in opentsdb"
+env COMPRESSION=NONE HBASE_HOME=/usr/local/hbase ./src/create_table.sh
 
