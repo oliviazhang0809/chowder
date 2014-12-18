@@ -1,0 +1,67 @@
+# CentOS-Base.repo
+#
+# This file uses a new mirrorlist system developed by Lance Davis for CentOS.
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the
+# remarked out baseurl= line instead.
+#
+#
+
+[base]
+name=CentOS-5 - Base
+#mirrorlist=http://sg2plmirror01.shr.prod.sin2.secureserver.net/vph/2/download/mirrors/cos-5.i386
+failovermethod=priority
+baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos5
+
+#released updates
+[update]
+name=CentOS-5 - Updates
+mirrorlist=http://sg2plmirror01.shr.prod.sin2.secureserver.net/vph/2/download/mirrors/cos-5-updates.i386
+failovermethod=priority
+#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos5
+
+#packages used/produced in the build but not released
+[addons]
+name=CentOS-5 - Addons
+mirrorlist=http://sg2plmirror01.shr.prod.sin2.secureserver.net/vph/2/download/mirrors/cos-5-addons.i386
+failovermethod=priority
+#baseurl=http://mirror.centos.org/centos/$releasever/addons/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos5
+
+#additional packages that may be useful
+[extras]
+name=CentOS-5 - Extras
+mirrorlist=http://sg2plmirror01.shr.prod.sin2.secureserver.net/vph/2/download/mirrors/cos-5-extras.i386
+failovermethod=priority
+#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos5
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-5 - Plus
+mirrorlist=http://sg2plmirror01.shr.prod.sin2.secureserver.net/vph/2/download/mirrors/cos-5-centosplus.i386
+failovermethod=priority
+#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos5
+
+#contrib - packages by Centos Users
+[contrib]
+name=CentOS-5 - Contrib
+mirrorlist=http://sg2plmirror01.shr.prod.sin2.secureserver.net/vph/2/download/mirrors/cos-5-contrib.i386
+failovermethod=priority
+#baseurl=http://mirror.centos.org/centos/$releasever/contrib/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centos5
