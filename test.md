@@ -39,7 +39,7 @@ Following table summarizes all the Create/Update/Delete operations with the asso
 |------|------|------|------|------|------|
 | invalidateUser- ToUserRelationProperties  | user- UserRelationProperty  | user_id  | List[[UserToUserRelationProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserToUserRelationProperty.scala)]  | √|  |
 | invalidateUserProperties  | userProperty  | user_id  | List[[UserProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserProperty.scala)]  | √|  |
-| invalidateUserFlagById  | [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala)  | user_id  |  [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala)  | √|  patchEmailFlagsById patchPartyFlags |
+| invalidateUserFlagById  | userFlag  | user_id  |  [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala)  | √|  patchEmailFlagsById patchPartyFlags |
 | invalidateUser  | user, multiUser  | user_id  | User, List[List[userId: String]]  | √|   patchAddressMetadata updateAddressMetadata deleteAddress createAddress updateOfficialDateMetadata patchOfficialDateMetadata createOfficialDate patchDocumentIdentifierMetadata updateDocumentIdentifierMetadata deleteDocumentIdentifier createDocumentIdentifier updateEmailMetadata patchEmailMetadata deleteEmail createEmail updateName updatePhoneMetadata patchPhoneMetadata deletePhone createPhone upsertPrivateCredential patchUser updateSecurityQuestions deleteUserToUserRelation createUserToUserRelation |
 | invalidateMultiUserResult  | multiUser  | account_id  | List[userId: String]  |  |  |
 | invalidateCredentialByAcctId  | credAccount  | account_id  | List[[Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala)]  |  |  |
@@ -53,11 +53,12 @@ Following table summarizes all the Create/Update/Delete operations with the asso
 * Test Cluster Setup
     * Our couchbase testing cluster is in the Stingray c3 DEV environment. There are 3 nodes, and the ups tests are configured to run against them.
 * Admin UI
-    * Host & Port
-        * http://couch1-221690.slc01.dev.ebayc3.com:8091/
-        * http://couch2-221691.slc01.dev.ebayc3.com:8091/
-        * http://couch3-221692.slc01.dev.ebayc3.com:8091/
-    * Username: stingray, Password: paypal
+    * Admin Entry
+        * Host & Port
+            * http://couch1-221690.slc01.dev.ebayc3.com:8091/
+            * http://couch2-221691.slc01.dev.ebayc3.com:8091/
+            * http://couch3-221692.slc01.dev.ebayc3.com:8091/
+        * Username: stingray, Password: paypal
 * Operational tips
     * If these machines stop working, try a soft reboot from the c3 web ui.
 
