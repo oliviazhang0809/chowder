@@ -17,20 +17,20 @@
 * Table - couchbase key-value pair.
 
 | Prefix  | Key  | Value |
-|------|------|------|
+|---|---|---|
 | user  | user_id | CouchUser(user: [User](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/User.scala), privateCreds: Map[String, [PrivateCredential](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/PrivateCredential.scala)], securityQuestions: Option[[SecurityQuestions](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/SecurityQuestions.scala)])  |
- | access | user_id | List[[AccountAccess](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountAccess.scala)] | 
- | userFlag | user_id | [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala) | 
- | userProperty | user_id | List[[UserProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserProperty.scala)] | 
- | userUserRelationProperty | user_id | List[[UserToUserRelationProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserToUserRelationProperty.scala)] | 
- | cred | cred_value | List[[AccountAccess](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountAccess.scala)] | 
- | account | cred_value | List[[Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala)] | 
- | account | account_id | [Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala) | 
- | credAccount | account_id | accountKey(cred_value) | 
- | multiUser | account_id | List[userId: String] | 
- | fileReference | account_id | List[[FileReference](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/FileReference.scala)] | 
- | accountFlag | account_id | [AccountFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/AccountFlags.scala) | 
- | accountProperty | account_id | List[[AccountProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountProperty.scala)] | 
+| access | user_id | List[[AccountAccess](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountAccess.scala)] | 
+| userFlag | user_id | [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala) | 
+| userProperty | user_id | List[[UserProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserProperty.scala)] | 
+| userUserRelationProperty | user_id | List[[UserToUserRelationProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserToUserRelationProperty.scala)] | 
+| cred | cred_value | List[[AccountAccess](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountAccess.scala)] | 
+| account | cred_value | List[[Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala)] | 
+| account | account_id | [Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala) | 
+| credAccount | account_id | accountKey(cred_value) | 
+| multiUser | account_id | List[userId: String] | 
+| fileReference | account_id | List[[FileReference](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/FileReference.scala)] | 
+| accountFlag | account_id | [AccountFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/AccountFlags.scala) | 
+| accountProperty | account_id | List[[AccountProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountProperty.scala)] | 
 
 ### 3. Cache Invalidation
 Following table summarizes all the Create/Update/Delete operations with the associated invalidation events.
