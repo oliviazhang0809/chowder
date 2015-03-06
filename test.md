@@ -35,9 +35,9 @@
 ### 3. Cache Invalidation
 Following table summarizes all the Create/Update/Delete operations with the associated invalidation events.
 
-| Method  | Prefix  | Key  | Removed Object  | InvalidateAllUserData | Associated Events
+| Method  | Prefix  | Key  | Removed Object  | Invalidate- AllUserData | Associated Events
 |------|------|------|------|------|------|
-| invalidateUserToUserRelationProperties  | userUserRelationProperty  | user_id  | List[[UserToUserRelationProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserToUserRelationProperty.scala)]  | √|  |
+| invalidateUser- ToUserRelationProperties  | userUserRelationProperty  | user_id  | List[[UserToUserRelationProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserToUserRelationProperty.scala)]  | √|  |
 | invalidateUserProperties  | userProperty  | user_id  | List[[UserProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/UserProperty.scala)]  | √|  |
 | invalidateUserFlagById  | [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala)  | user_id  |  [UserFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/UserFlags.scala)  | √|  patchEmailFlagsById patchPartyFlags |
 | invalidateUser  | user, multiUser  | user_id  | User, List[List[userId: String]]  | √|   patchAddressMetadata updateAddressMetadata deleteAddress createAddress updateOfficialDateMetadata patchOfficialDateMetadata createOfficialDate patchDocumentIdentifierMetadata updateDocumentIdentifierMetadata deleteDocumentIdentifier createDocumentIdentifier updateEmailMetadata patchEmailMetadata deleteEmail createEmail updateName updatePhoneMetadata patchPhoneMetadata deletePhone createPhone upsertPrivateCredential patchUser updateSecurityQuestions deleteUserToUserRelation createUserToUserRelation |
@@ -49,7 +49,7 @@ Following table summarizes all the Create/Update/Delete operations with the asso
 | invalidateAccountAccess  | access  | user_id  | List[[AccountAccess](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountAccess.scala)]  | √|  |
 | invalidateAccount  |  credAccount, account, fileReference, accountFlag, accountPropert  | account_id  |  List[[Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala)], [Account](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/Account.scala), List[[FileReference](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/FileReference.scala)], [AccountFlags](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/model/AccountFlags.scala), List[[AccountProperty](https://github.paypal.com/Customers-R/user-platform-serv/blob/develop/user-platform-serv/src/main/scala/com/paypal/stingray/userplatform/autogen/model/AccountProperty.scala)] | √|   upsertLegalAgreement patchAccountMetadata updateAccountMetadata createAccountRelation |
 
-##### 4. Deployment and Operation
+### 4. Deployment and Operation
 * Test Cluster Setup
     * Our couchbase testing cluster is in the Stingray c3 DEV environment. There are 3 nodes, and the ups tests are configured to run against them.
 * Admin UI
