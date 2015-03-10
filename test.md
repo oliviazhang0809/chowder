@@ -67,7 +67,7 @@ Following tables summarize all the Create/Update/Delete operations with the asso
 | invalidateAccountAccess | √|  |
 | invalidateAccount  | √| <p>upsertLegalAgreement<p>patchAccountMetadata<p>updateAccountMetadata<p>createAccountRelation |
 
-<a name="user_methods">InvalidateUser Associated Methods</a>
+#### <a name="user_methods">InvalidateUser Associated Methods</a>
 * patchAddressMetadata
 * updateAddressMetadata
 * deleteAddress
