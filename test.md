@@ -6,7 +6,7 @@
 * Jackson library is used for serialization/deserialization.
 * Full property key names will be serialized instead of abbreviated form.
 * For array-type properties, only first/top N elements of the array in couch, further elements are fetched from ASF directly The exact value of N is TBD, though 100 seems reasonable.
-* All data values are encrypted via AES/CBC/PKCS5Padding with a 128 bit key. Keys in couch are also hashed using SHA-256. Object values will be serialized json that is AES-128 encrypted.
+* All data values are encrypted via AES/CBC/PKCS5 padding with a 128 bit key. Keys in couch are also hashed using SHA-256. Object values will be serialized json that is AES-128 encrypted.
 * There is no partial update in couchbase. Currently UPS will always clear the couch cache, and we'll look to do optimistic concurrency via CAS (check-and-set) operations in the future.
 
 ### Data Model
@@ -58,7 +58,7 @@ Following tables summarize all the Create/Update/Delete operations with the asso
 | invalidateUser- ToUserRelationProperties | √|  |
 | invalidateUserProperties  |  √|  |
 | invalidateUserFlagById   | √|  <p>patchEmailFlagsById</p> <p>patchPartyFlags</p> |
-| invalidateUser  |  √ | <p>patchAddressMetadata<p>updateAddressMetadata<p>deleteAddress<p>createAddress<p>updateOfficialDateMetadata<p>patchOfficialDateMetadata<p>createOfficialDate<p>patchDocumentIdentifierMetadata<p>updateDocumentIdentifierMetadata<p>deleteDocumentIdentifier<p>createDocumentIdentifier<p>updateEmailMetadata<p>patchEmailMetadata<p>deleteEmail<p>createEmail<p>updateName<p>updatePhoneMetadata<p>patchPhoneMetadata<p>deletePhone<p>createPhone<p>upsertPrivateCredential<p>patchUser<p>updateSecurityQuestions<p>deleteUserToUserRelation<p>createUserToUserRelation |
+| invalidateUser  |  √ | [Associated methods]() |
 | invalidateMultiUserResult  |  |  |
 | invalidateCredentialByAcctId |  |  |
 | invalidateCredential | √|  |
@@ -66,6 +66,34 @@ Following tables summarize all the Create/Update/Delete operations with the asso
 | invalidateAccountProperties  |  |
 | invalidateAccountAccess | √|  |
 | invalidateAccount  | √| <p>upsertLegalAgreement<p>patchAccountMetadata<p>updateAccountMetadata<p>createAccountRelation |
+
+#### InvalidateUser Associated Methods
+* patchAddressMetadata
+* updateAddressMetadata
+* deleteAddress
+* createAddress
+* updateOfficialDateMetadata
+* patchOfficialDateMetadata
+* createOfficialDate
+* patchDocumentIdentifierMetadata
+* updateDocumentIdentifierMetadata
+* deleteDocumentIdentifier
+* createDocumentIdentifier
+* updateEmailMetadata
+* patchEmailMetadata
+* deleteEmail
+* createEmail
+* updateName
+* updatePhoneMetadata
+* patchPhoneMetadata
+* deletePhone
+* createPhone
+* upsertPrivateCredential
+* patchUser
+* updateSecurityQuestions
+* deleteUserToUserRelation
+* createUserToUserRelation
+
 ### Deployment and Operation
 * Test Cluster Setup
     * Our couchbase testing cluster is in the Stingray c3 DEV environment. There are 3 nodes, and the ups tests are configured to run against them.
