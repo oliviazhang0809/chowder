@@ -58,7 +58,7 @@ Following tables summarize all the Create/Update/Delete operations with the asso
 | invalidateUser- ToUserRelationProperties | √|  |
 | invalidateUserProperties  |  √|  |
 | invalidateUserFlagById   | √|  <p>patchEmailFlagsById</p> <p>patchPartyFlags</p> |
-| invalidateUser  |  √ | [Associated methods]() |
+| invalidateUser  |  √ | [Associated methods](#user_methods) |
 | invalidateMultiUserResult  |  |  |
 | invalidateCredentialByAcctId |  |  |
 | invalidateCredential | √|  |
@@ -67,7 +67,7 @@ Following tables summarize all the Create/Update/Delete operations with the asso
 | invalidateAccountAccess | √|  |
 | invalidateAccount  | √| <p>upsertLegalAgreement<p>patchAccountMetadata<p>updateAccountMetadata<p>createAccountRelation |
 
-#### InvalidateUser Associated Methods
+<a name="user_methods">InvalidateUser Associated Methods</a>
 * patchAddressMetadata
 * updateAddressMetadata
 * deleteAddress
