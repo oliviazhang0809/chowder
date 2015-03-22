@@ -42,7 +42,8 @@ REPLACEMENT_DICT = {
 	"tags": "flags",
 	"party": "user",
 	"parties": "users",
-	"Party": "User"
+	"Party": "User",
+	"Paypal": "PayPal"
 }
 
 # Test it
