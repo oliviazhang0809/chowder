@@ -29,7 +29,7 @@ def jsonPrinter(name, descriptions, value): # print out result in json format
 	descriptions = processWording(descriptions)
 	print("\"" + name + "\": {")
 	print("  \"type\": \"boolean\",")
-	print("  \"description\": " + "\"" + descriptions + "(aka " + value + ")" + "\"")
+	print("  \"description\": " + "\"" + descriptions + "(aka" + value + ")" + "\"")
 	print("},") 
 
 def processWording(descriptions): # business logic
@@ -38,6 +38,7 @@ def processWording(descriptions): # business logic
 	return descriptions
 
 REPLACEMENT_DICT = {
+	"\"": '',
 	"tag": "flag",
 	"tags": "flags",
 	"party": "user",
@@ -47,4 +48,4 @@ REPLACEMENT_DICT = {
 }
 
 # Test it
-flagsMapper("/Users/tzhang1/Desktop/test.txt")
+#flagsMapper("/Users/tzhang1/Desktop/phone_flag.txt")
