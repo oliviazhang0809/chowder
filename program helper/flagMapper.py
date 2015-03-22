@@ -26,12 +26,24 @@ def getDescriptions(desc_array): # process descriptions
 	return descriptions
 
 def jsonPrinter(name, descriptions, value): # print out result in json format
-	descriptions =  descriptions.replace('\"','')
+	descriptions = processWording(descriptions)
 	print("\"" + name + "\": {")
 	print("  \"type\": \"boolean\",")
 	print("  \"description\": " + "\"" + descriptions + "(aka " + value + ")" + "\"")
 	print("},") 
 
+def processWording(descriptions): # business logic
+	for key, value in REPLACEMENT_DICT.iteritems():
+		descriptions = descriptions.replace(key, value)
+	return descriptions
+
+REPLACEMENT_DICT = {
+	"tag": "flag",
+	"tags": "flags",
+	"party": "user",
+	"parties": "users",
+	"Party": "User"
+}
 
 # Test it
 flagsMapper("/Users/tzhang1/Desktop/test.txt")
