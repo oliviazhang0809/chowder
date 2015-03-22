@@ -10,13 +10,13 @@ def flagsMapper(filename):
 
 def process(paragraph):
 	paragraph = paragraph.split("\n")
-	name = getTitle(paragraph[0])
+	(name, value) = getTitle(paragraph[0])
 	descriptions = getDescriptions(paragraph[1:])
-	jsonPrinter(name, descriptions)
+	jsonPrinter(name, descriptions[:-1], value)
 
 def getTitle(line): # get flag name
 	index = line.index("=")
-	return line[:index-1].lower() 
+	return (line[:index-1].lower(), line[index + 1:])
 
 def getDescriptions(desc_array): # process descriptions
 	descriptions = ""
@@ -25,13 +25,13 @@ def getDescriptions(desc_array): # process descriptions
 		descriptions += " "
 	return descriptions
 
-def jsonPrinter(name, descriptions): # print out result in json format
+def jsonPrinter(name, descriptions, value): # print out result in json format
 	descriptions =  descriptions.replace('\"','')
-	print("\"" + name+"\": {")
+	print("\"" + name + "\": {")
 	print("  \"type\": \"boolean\",")
-	print("  \"description\": " + "\"" + descriptions + "\"")
+	print("  \"description\": " + "\"" + descriptions + "(aka " + value + ")" + "\"")
 	print("},") 
 
 
 # Test it
-# flagsMapper("/Users/tzhang1/Desktop/test.txt")
+flagsMapper("/Users/tzhang1/Desktop/test.txt")
