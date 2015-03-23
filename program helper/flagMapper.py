@@ -1,3 +1,6 @@
+
+#!/usr/bin/env python
+
 def flagsMapper(filename):
 	f = open(filename, "r")
 	paragraph = ""
@@ -23,19 +26,18 @@ def getDescriptions(desc_array): # process descriptions
 	for setence in desc_array:
 		descriptions += setence[1:]
 		descriptions += " "
-	return descriptions
-
-def jsonPrinter(name, descriptions, value): # print out result in json format
-	descriptions = processWording(descriptions)
-	print("\"" + name + "\": {")
-	print("  \"type\": \"boolean\",")
-	print("  \"description\": " + "\"" + descriptions + "(aka" + value + ")" + "\"")
-	print("},") 
+	return processWording(descriptions)
 
 def processWording(descriptions): # business logic
 	for key, value in REPLACEMENT_DICT.iteritems():
 		descriptions = descriptions.replace(key, value)
 	return descriptions
+
+def jsonPrinter(name, descriptions, value): # print out result in json format
+	print("\"" + name + "\": {")
+	print("  \"type\": \"boolean\",")
+	print("  \"description\": " + "\"" + descriptions + "(aka" + value + ")" + "\"")
+	print("},") 
 
 REPLACEMENT_DICT = {
 	"\"": '',
@@ -44,8 +46,9 @@ REPLACEMENT_DICT = {
 	"party": "user",
 	"parties": "users",
 	"Party": "User",
-	"Paypal": "PayPal"
+	"Paypal": "PayPal"#,
+	#"*** DEPRECATED ***": "[DEPRECATED]"
 }
 
 # Test it
-#flagsMapper("/Users/tzhang1/Desktop/phone_flag.txt")
+flagsMapper("/Users/tzhang1/Desktop/phone_flag.txt")
