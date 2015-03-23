@@ -40,7 +40,7 @@ echo "Creating Influxdb database $DB_TO_OPEN."
 curl -s "http://$MY_HOST:8086/db?u=root&p=root" -d "{\"name\": \"$DB_TO_OPEN\"}"
 
 echo "Configuring Grafana."
-wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/setup/config.js -O $GRAFANA_VER/config.js --no-check-certificate
+wget https://raw.githubusercontent.com/oliviazhang0809/chowder/master/influxdb-grafana-nginx/config.js -O $GRAFANA_VER/config.js --no-check-certificate
 sed -i "s|HOST_NAME|$MY_HOST|g" $GRAFANA_VER/config.js
 sed -i "s|DATABASE_NAME|$DB_TO_OPEN|g" $GRAFANA_VER/config.js
 mkdir -p /var/www/{public,private,log,backup}
@@ -48,7 +48,7 @@ mv $GRAFANA_VER /var/www/public/grafana
 
 echo "Configuring Nginx."
 rm /etc/nginx/nginx.conf
-wget https://raw.githubusercontent.com/oliviazhang0809/grafana/master/setup/nginx.conf -O /etc/nginx/nginx.conf --no-check-certificate
+wget https://raw.githubusercontent.com/oliviazhang0809/chowder/master/influxdb-grafana-nginx/nginx.conf -O /etc/nginx/nginx.conf --no-check-certificate
 nginx
 
 echo "Downloading sine wave generation program."
