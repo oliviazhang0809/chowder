@@ -7,8 +7,8 @@ This is a temporary placeholder for all project files.
 2. ***librarian-puppet***, script download and install librarian-puppet + dependencies, and import modules specified in Puppetfile.
 3. ***vagrant-multi-vm-pool*** - a sweet vagrant program with multiple virtual boxes that you can spin up your dev with. You can add your own script provision in scripts/setup.sh or create more based on need.
 4. ***openTSDB*** a simple vagrant program that setup openTSDB, HBase and gnuplot. Super simple -- just shell provision.
-5. *** prepare*** - installation scripts or whatever
-6, *** program helper*** - simple scripts for processing txt files to I don't have to copy and paste. 
+5. ***prepare*** - installation scripts or whatever
+6, ***program helper*** - simple scripts for processing txt files to I don't have to copy and paste. 
 
 I love coding! :)
 
